@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     // controllers
     public static PlayerController staticController;
     Animator animator;
+    EmotionController emotionController;
 
     public float speed;
     public float defaultSpeed;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        emotionController = GetComponent<EmotionController>();
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
         GetMovementInput();
         GetMouseInput();
         SetLookDirection(); // based on mouse input
+        ListenInteractByMouseClick();
 
         Debug.DrawLine(transform.position, mouseTarget, Color.red);
         // Debug.DrawRay(transform.position, lookDirection, Color.blue);
@@ -80,10 +83,35 @@ public class PlayerController : MonoBehaviour
         lookDirection = (mouseTarget - rigidbody2d.position).normalized;
     }
 
-    // Warrior only
-    public void Dash()
+    private void ListenInteractByMouseClick()
     {
-        rigidbody2d.MovePosition(rigidbody2d.position + movement * Time.fixedDeltaTime * 120);
+        if (Input.GetButtonDown("Fire1"))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1f, LayerMask.GetMask("Consumable"));
+            if (hit.collider != null)
+            {
+                Debug.Log("Raycast has hit the object " + hit.collider.gameObject);
+                ConsumableBehaviour littleMan = hit.collider.GetComponent<ConsumableBehaviour>();
+                if (littleMan != null)
+                {
+                    switch (littleMan.name)
+                    {
+                        case "Blue": emotionController.Handler(EmotionColor.blue); break;
+                        case "Green": emotionController.Handler(EmotionColor.green); break;
+                        case "Pink": emotionController.Handler(EmotionColor.pink); break;
+                        case "Purple": emotionController.Handler(EmotionColor.purple); break;
+                        case "Yellow": emotionController.Handler(EmotionColor.yellow); break;
+                        default: Debug.Log("Nothing to add"); break;
+                    }
+
+
+
+                    littleMan.Kill();
+                    // say little man to give us emotion and    (need some emotion logic)
+                    // change sprite of little man and start coroutine timer for destroy
+                }
+            }
+        }
     }
 
 }
