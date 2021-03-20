@@ -6,6 +6,7 @@ public class ConsumableBehaviour : MonoBehaviour
 {
     public Sprite deadSprite;
     // Start is called before the first frame update
+    public EmotionColor emotionColor;
 
     private void Start()
     {
@@ -15,8 +16,9 @@ public class ConsumableBehaviour : MonoBehaviour
     public void Kill()
     {
         GetComponent<SpriteRenderer>().sprite = deadSprite;
-        GetComponent<Rigidbody2D>().isKinematic = true;
+        // GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<HumanController>().enabled = false;
         Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAA!!!");
     }
 }

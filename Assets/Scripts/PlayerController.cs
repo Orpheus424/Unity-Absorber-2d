@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
         get { return lookDirection; }
     }
 
-    public bool needDash = false;
     public int defaultDamage;
     public int damageModifier;
     public int damage;
@@ -49,8 +48,13 @@ public class PlayerController : MonoBehaviour
         SetLookDirection(); // based on mouse input
         ListenInteractByMouseClick();
 
-        Debug.DrawLine(transform.position, mouseTarget, Color.red);
-        // Debug.DrawRay(transform.position, lookDirection, Color.blue);
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            emotionController.Handle(EmotionColor.none);
+        }
+
+        //Debug.DrawLine(transform.position, mouseTarget, Color.red);
+        Debug.DrawRay(transform.position, lookDirection, Color.blue);
 
         // animation logic
     }
@@ -81,6 +85,13 @@ public class PlayerController : MonoBehaviour
     private void SetLookDirection()
     {
         lookDirection = (mouseTarget - rigidbody2d.position).normalized;
+
+/*         // set look direction
+        if (!Mathf.Approximately(movement.x, 0.0f) || !Mathf.Approximately(movement.y, 0.0f))
+        {
+            lookDirection.Set(movement.x, movement.y);
+            lookDirection.Normalize();
+        } */
     }
 
     private void ListenInteractByMouseClick()
@@ -94,24 +105,21 @@ public class PlayerController : MonoBehaviour
                 ConsumableBehaviour littleMan = hit.collider.GetComponent<ConsumableBehaviour>();
                 if (littleMan != null)
                 {
-                    switch (littleMan.name)
+                    switch (littleMan.emotionColor)
                     {
-                        case "Blue": emotionController.Handler(EmotionColor.blue); break;
-                        case "Green": emotionController.Handler(EmotionColor.green); break;
-                        case "Pink": emotionController.Handler(EmotionColor.pink); break;
-                        case "Purple": emotionController.Handler(EmotionColor.purple); break;
-                        case "Yellow": emotionController.Handler(EmotionColor.yellow); break;
+                        case EmotionColor.blue      :   emotionController.SpawnEmotion(littleMan.transform.position + Vector3.up * 0.2f, EmotionColor.blue);  break;
+                        case EmotionColor.green     :   emotionController.SpawnEmotion(littleMan.transform.position + Vector3.up * 0.2f, EmotionColor.green); break;
+                        case EmotionColor.pink      :   emotionController.SpawnEmotion(littleMan.transform.position + Vector3.up * 0.2f, EmotionColor.pink); break;
+                        case EmotionColor.purple    :   emotionController.SpawnEmotion(littleMan.transform.position + Vector3.up * 0.2f, EmotionColor.purple); break;
+                        case EmotionColor.yellow    :   emotionController.SpawnEmotion(littleMan.transform.position + Vector3.up * 0.2f, EmotionColor.yellow); break;
                         default: Debug.Log("Nothing to add"); break;
                     }
 
-
-
                     littleMan.Kill();
-                    // say little man to give us emotion and    (need some emotion logic)
-                    // change sprite of little man and start coroutine timer for destroy
                 }
             }
         }
     }
 
+    //
 }
