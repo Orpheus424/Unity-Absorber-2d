@@ -56,7 +56,10 @@ public class EmotionController : MonoBehaviour
         else
         {
             Debug.Log("null emotion");
-            RemoveEmotion();
+            if (emotions.Count > 0) //prevent IndexOutOfRangeException for empty list
+            {
+                RemoveEmotion();
+            }
         }
         // AddEmotion
         // RemoveEmotion
@@ -71,6 +74,6 @@ public class EmotionController : MonoBehaviour
 
     private void RemoveEmotion()
     {
-        emotions.
+        emotions.RemoveAt(emotions.Count - 1);
     }
 }
