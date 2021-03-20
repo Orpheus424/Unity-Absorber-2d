@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     {
         get { return lookDirection; }
     }
+    public Vector2 MouseTarget
+    {
+        get { return mouseTarget; }
+    }
 
     public bool needDash = false;
     public int defaultDamage;
