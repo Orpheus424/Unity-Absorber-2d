@@ -61,9 +61,6 @@ public class EmotionController : MonoBehaviour
                 RemoveEmotion();
             }
         }
-        // AddEmotion
-        // RemoveEmotion
-
     }
 
     private void AddEmotion(EmotionColor ec)
