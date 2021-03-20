@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4054309704232783987}
   - component: {fileID: 4054309704232783986}
   - component: {fileID: 4054309704232783984}
-  - component: {fileID: 5674608462532840598}
-  - component: {fileID: 5188810204013629317}
+  - component: {fileID: 1237543985802322674}
+  - component: {fileID: 4507606290422607993}
   m_Layer: 0
   m_Name: PlayerGhost
   m_TagString: Untagged
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867f9c6e13e72b942aaab4aa7f7adc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCam: {fileID: 4054309704631914077}
   speed: 1
   defaultSpeed: 1.5
   speedModifier: 1
@@ -106,7 +107,7 @@ MonoBehaviour:
   defaultDamage: 0
   damageModifier: 0
   damage: 0
---- !u!50 &5674608462532840598
+--- !u!50 &1237543985802322674
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -123,12 +124,12 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!61 &5188810204013629317
-BoxCollider2D:
+  m_Constraints: 0
+--- !u!68 &4507606290422607993
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,19 +141,27 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.002674222, y: 0.09679149}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8333333, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.22549748, y: 0.21866146}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.2766634, y: -0.20919418}
+  - {x: 0.25936496, y: -0.32630682}
+  - {x: 0.009345651, y: -0.40979433}
+  - {x: -0.27672386, y: -0.32408237}
+  - {x: -0.3008163, y: -0.18488884}
+  - {x: -0.1337378, y: 0.14188623}
+  - {x: -0.1679703, y: 0.22505379}
+  - {x: -0.07331765, y: 0.41041946}
+  - {x: 0.02077043, y: 0.38998318}
+  - {x: 0.083242655, y: 0.28184795}
+  - {x: 0.051169157, y: 0.1418171}
+  - {x: 0.10238969, y: 0.13424349}
+  - {x: 0.26332688, y: -0.14190245}
+  - {x: 0.2811884, y: -0.21118689}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &4054309704631914079
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4054309704631914079}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -6}
+  m_LocalPosition: {x: 0, y: 2.95, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4054309704232783987}
@@ -210,9 +219,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 50
+  field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -43,21 +43,18 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GetMovementInput();
-        // GetMouseInput();
-        SetLookDirection();
+        GetMouseInput();
+        SetLookDirection(); // based on mouse input
 
-        // Debug.DrawLine(transform.position, mouseTarget, Color.red);
-        Debug.DrawRay(transform.position, lookDirection, Color.blue);
-        // Debug.Log("Get look direction: " + GetLookDirecton());
+        Debug.DrawLine(transform.position, mouseTarget, Color.red);
+        // Debug.DrawRay(transform.position, lookDirection, Color.blue);
 
         // animation logic
     }
 
     private void FixedUpdate()
     {
-        MovementControl();
-/*         if (needDash)
-            Dash(); */
+        MovementUpdate();
     }
 
     private void GetMovementInput()
@@ -66,7 +63,7 @@ public class PlayerController : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
     }
 
-    private void MovementControl()
+    private void MovementUpdate()
     {
         Vector2 positionToMove = rigidbody2d.position;
         positionToMove += movement * defaultSpeed * speedModifier * Time.fixedDeltaTime;
@@ -80,11 +77,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetLookDirection()
     {
-        if (!Mathf.Approximately(movement.x, 0.0f) || !Mathf.Approximately(movement.y, 0.0f))
-        {
-            lookDirection.Set(movement.x, movement.y);
-            lookDirection.Normalize();
-        }
+        lookDirection = (mouseTarget - rigidbody2d.position).normalized;
     }
 
     // Warrior only
