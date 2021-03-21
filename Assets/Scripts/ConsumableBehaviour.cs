@@ -18,6 +18,8 @@ public class ConsumableBehaviour : MonoBehaviour
     {
         Debug.Log("KILL!");
         emotion.SpawnEmotion(transform.position + Vector3.up * 0.2f, emotionColor);
+        GameObject.Find("Spawner").GetComponent<Spawner>().getKilled = true;
+        GameObject.Find("Spawner").GetComponent<Spawner>().killedColor = emotionColor;
         GetComponent<SpriteRenderer>().sprite = deadSprite;
         // GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<BoxCollider2D>().enabled = false;

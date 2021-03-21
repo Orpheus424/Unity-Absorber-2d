@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3817211420370735927}
   - component: {fileID: 3817211420370735921}
   - component: {fileID: -8772025180625554734}
+  - component: {fileID: 642346637}
   m_Layer: 0
   m_Name: ball_purple
   m_TagString: Emotion
@@ -123,6 +124,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emotionColor: 3
+  math: 0
   amplitude: 0.1
   speed: 0.7
   radius: 0.7
+--- !u!95 &642346637
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3817211420370735920}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e90e24f3fc16d3a4ea37d29b5f266a7e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

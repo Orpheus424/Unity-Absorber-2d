@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6454424236094791949}
   - component: {fileID: 6454424236094791951}
   - component: {fileID: 4424205616819009904}
+  - component: {fileID: 92025930}
   m_Layer: 0
   m_Name: ball_green
   m_TagString: Emotion
@@ -123,6 +124,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emotionColor: 1
+  math: 0
   amplitude: 0.1
   speed: 0.7
   radius: 0.7
+--- !u!95 &92025930
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454424236094791936}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 17bf0f0b5c1c89a49b23daa5bdc6884e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

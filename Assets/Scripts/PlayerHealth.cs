@@ -35,14 +35,7 @@ public class PlayerHealth : MonoBehaviour
             }
             else
             {
-                GetComponent<SpriteRenderer>().enabled = false;
-                GetComponent<Rigidbody2D>().isKinematic = true;
-                GetComponent<BoxCollider2D>().enabled = false;
-                GetComponent<HumanController>().enabled = false;
-                GetComponent<PlayerController>().enabled = false;
-                GetComponent<EmotionController>().enabled = false;
-                this.enabled = false;
-                // GameManager.instance.Defeat();
+                GameManager.instance.Defeat();
             }
 
         }
@@ -95,11 +88,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<Rigidbody2D>().isKinematic = true;
-            GetComponent<BoxCollider2D>().enabled = false;
-            GetComponent<HumanController>().enabled = false;
-            // GameManager.instance.Defeat();
+            GameManager.instance.Defeat();
         }
     }
 }
