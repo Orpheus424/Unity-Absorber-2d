@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5361281950930537916}
   - component: {fileID: 5361281950930537918}
   - component: {fileID: -6158470154639215722}
+  - component: {fileID: 7250212769500848012}
   m_Layer: 0
   m_Name: ball_blue
   m_TagString: Emotion
@@ -123,6 +124,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emotionColor: 0
+  math: 0
   amplitude: 0.1
   speed: 0.7
   radius: 0.7
+--- !u!95 &7250212769500848012
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361281950930537913}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c378c70e21f12ea4f93053e1ca76ae14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

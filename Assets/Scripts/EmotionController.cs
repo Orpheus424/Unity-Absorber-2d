@@ -95,17 +95,23 @@ public class EmotionController : MonoBehaviour
 
         if (emotions.Count == 5)
         {
-            Debug.Log("Health");
-            for (int i = 1; i < 6; i++)
-            {
-                var emotionToUndraw = RemoveEmotion();
-                Destroy( transform.GetChild( i ).gameObject );
-                Debug.Log(emotions.Count);
-            }
-            GetComponent<PlayerHealth>().UpdateHealth(+10);
-            GetComponent<PlayerHealth>().healthReduceValue += 0.001f;
-            globalAngle = -45;
+            StartCoroutine("fiveSpheres");
         }
+    }
+
+    private IEnumerator fiveSpheres()
+    {
+        yield return new WaitForSeconds(3f);
+        Debug.Log("Heal");
+        for (int i = 1; i < 6; i++)
+        {
+            var emotionToUndraw = RemoveEmotion();
+            Destroy(transform.GetChild(i).gameObject);
+            Debug.Log(emotions.Count);
+        }
+        GetComponent<PlayerHealth>().UpdateHealth(+10);
+        GetComponent<PlayerHealth>().healthReduceValue += 0.001f;
+        globalAngle = -45;
     }
 
     private Emotion AddEmotion(EmotionColor ec)

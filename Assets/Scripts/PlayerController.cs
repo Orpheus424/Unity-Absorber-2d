@@ -61,6 +61,10 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(transform.position, lookDirection, Color.blue);
 
         // animation logic
+        animator.SetFloat("MoveX", movement.x);
+        animator.SetFloat("MoveY", movement.y);
+        animator.SetFloat("speed", movement.magnitude);
+
     }
 
     private void FixedUpdate()
