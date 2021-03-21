@@ -159,6 +159,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2bf0e8aac34a6e46b9491189ba825b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  retreatDistance: 4
-  retreatRunDistance: 2

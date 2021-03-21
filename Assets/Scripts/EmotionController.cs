@@ -40,6 +40,8 @@ public class EmotionController : MonoBehaviour
     {
         emotionWorld = ew;
     }
+
+    public Vector3 direction;
     
     // Start is called before the first frame update
     void Start()
@@ -134,7 +136,7 @@ public class EmotionController : MonoBehaviour
     public void DrawNewEmotion(EmotionColor ec)
     {
         globalAngle -= stepAngle;
-        SpawnEmotionAsChild(globalAngle, 1, ec);
+        SpawnEmotionAsChild(globalAngle, ec);
     }
 
     public void UndrawEmotion()
@@ -151,13 +153,14 @@ public class EmotionController : MonoBehaviour
         return spawnedEmotion;
     }
 
-    public void SpawnEmotionAsChild(float angle, int radius, EmotionColor emotionColor)
+    public void SpawnEmotionAsChild(float angle, EmotionColor emotionColor)
     {
-        Vector3 direction = (Quaternion.Euler(0, 0, angle) * Vector3.down).normalized;
+        direction = (Quaternion.Euler(0, 0, angle) * Vector3.down).normalized;
         GameObject emotionObject = Instantiate(GetEmotionObjectByColor(emotionColor), transform.position, Quaternion.identity)
         as GameObject;
         emotionObject.transform.SetParent(this.gameObject.transform, false);
-        emotionObject.transform.position = transform.position + direction * radius;
+        //emotionObject.transform.position = transform.position + direction * radius;
+        emotionObject.transform.position = transform.position;
     }
 
     public void DropEmotion(Vector3 dropPosition, EmotionColor emotionColor)

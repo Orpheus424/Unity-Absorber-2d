@@ -109,16 +109,6 @@ public class PlayerController : MonoBehaviour
                 ConsumableBehaviour littleMan = hit.collider.GetComponent<ConsumableBehaviour>();
                 if (littleMan != null)
                 {
-                    switch (littleMan.emotionColor)
-                    {
-                        case EmotionColor.blue      :   emotionController.SpawnEmotion(littleMan.transform.position + Vector3.up * 0.2f, EmotionColor.blue);  break;
-                        case EmotionColor.green     :   emotionController.SpawnEmotion(littleMan.transform.position + Vector3.up * 0.2f, EmotionColor.green); break;
-                        case EmotionColor.pink      :   emotionController.SpawnEmotion(littleMan.transform.position + Vector3.up * 0.2f, EmotionColor.pink); break;
-                        case EmotionColor.purple    :   emotionController.SpawnEmotion(littleMan.transform.position + Vector3.up * 0.2f, EmotionColor.purple); break;
-                        case EmotionColor.yellow    :   emotionController.SpawnEmotion(littleMan.transform.position + Vector3.up * 0.2f, EmotionColor.yellow); break;
-                        default: Debug.Log("Nothing to add"); break;
-                    }
-
                     littleMan.Kill();
                 }
             }
