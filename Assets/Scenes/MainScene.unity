@@ -252,6 +252,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerGhost
       objectReference: {fileID: 0}
+    - target: {fileID: 4054309704631914077, guid: f61a6dbe39f64f74b872c73cda368445, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.11764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054309704631914077, guid: f61a6dbe39f64f74b872c73cda368445, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.11764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054309704631914077, guid: f61a6dbe39f64f74b872c73cda368445, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.11764706
+      objectReference: {fileID: 0}
     - target: {fileID: 7834676736479242600, guid: f61a6dbe39f64f74b872c73cda368445, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 29.3
