@@ -10,12 +10,14 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("first Check");
-        for (letters = Random.Range(3, 10); letters == 0; letters--)
-        {
-            Debug.Log("for check");
-            var human = Instantiate(GameObject.Find("BlueHuman"), GetFreespawnPosition(), Quaternion.identity);
-        }
+
+
+        RandomObjectSpawn("BlueHuman", 3, 5);
+        RandomObjectSpawn("YellowHuman", 3, 5);
+        RandomObjectSpawn("PurpleHuman", 3, 5);
+        RandomObjectSpawn("PinkHuman", 3, 5);
+        RandomObjectSpawn("GreenHuman", 3, 5);
+
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class Spawner : MonoBehaviour
         Collider[] collisions = new Collider[1];
         do
         {
-            spawnPosition = new Vector3(Random.Range(-2.0f, 4.0f), Random.Range(-3, 7), 0);
+            spawnPosition = new Vector3(Random.Range(-15.0f, 15.0f), Random.Range(-15, 15), 0);
         }
         while(Physics.OverlapSphereNonAlloc(spawnPosition, 0.5f, collisions) > 0);
 
@@ -42,4 +44,13 @@ public class Spawner : MonoBehaviour
     }
 
 
+    private void RandomObjectSpawn(string Object, int min, int max)
+    {
+        letters = Random.Range(min, max);
+        while (letters > 0)
+        {
+            var human = Instantiate(Resources.Load(Object), GetFreespawnPosition(), Quaternion.identity);
+            letters--;
+        }
+    }
 }
