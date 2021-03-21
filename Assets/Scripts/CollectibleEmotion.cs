@@ -59,7 +59,6 @@ public class CollectibleEmotion : MonoBehaviour
     {
         if (emotionState == true)
         {
-            Debug.Log("im working!");
             tempPos.y = tempVal + amplitude * Mathf.Sin(speed * Time.time);
             transform.position = tempPos;
         }

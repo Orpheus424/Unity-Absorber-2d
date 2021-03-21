@@ -62,16 +62,6 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
         if (invincibleTimer >= 0) invincibleTimer -= Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            UpdateHealth(-10);
-        } 
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            UpdateHealth(+30);
-        }
     }
 
     private void FixedUpdate() 
