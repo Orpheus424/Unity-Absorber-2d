@@ -95,6 +95,7 @@ public class EmotionController : MonoBehaviour
 
         if (emotions.Count == 5)
         {
+            Debug.Log("Health");
             for (int i = 1; i < 6; i++)
             {
                 var emotionToUndraw = RemoveEmotion();
