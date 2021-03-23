@@ -12,20 +12,20 @@ public class CollectibleEmotion : MonoBehaviour
     private CollectibleEmotion emotion;
 
     private bool emotionState = true;
-     public float amplitude;          //Set in Inspector 
-     public float speed;                  //Set in Inspector 
-     private float tempVal;
-     private Vector3 tempPos;
-     private float pickUpSpeed;
+    public float amplitude;          //Set in Inspector 
+    public float speed;                  //Set in Inspector 
+    private float tempVal;
+    private Vector3 tempPos;
+    private float pickUpSpeed;
 
-     private float distanceToPlayer;
-     private bool magnetState = true;
-     private Vector3 direction;
-     private bool followState = false;
-     private bool onPositionState = false;
-     private Transform playerT;
-     private Vector3 emotionPos;
-     public float radius;
+    private float distanceToPlayer;
+    private bool magnetState = true;
+    private Vector3 direction;
+    private bool followState = false;
+    private bool onPositionState = false;
+    private Transform playerT;
+    private Vector3 emotionPos;
+    public float radius;
 
     private void Start() 
     {
